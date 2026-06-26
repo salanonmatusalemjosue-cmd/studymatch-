@@ -47,7 +47,7 @@ export default function Professeurs() {
           <a href="/professeurs" style={{ color: "#fff", fontSize: "14px", textDecoration: "none" }}>Professeurs</a>
           <a href="#" style={{ color: "#B5D4F4", fontSize: "14px", textDecoration: "none" }}>Comment ça marche</a>
         </div>
-        <href="/#/connexion"
+        <a href="/#/connexion"
 " style={{ background: "#fff", color: "#0C447C", border: "none", borderRadius: "8px", padding: "7px 16px", fontSize: "13px", fontWeight: 500, cursor: "pointer", textDecoration: "none" }}>
           Devenir prof
         </a>
