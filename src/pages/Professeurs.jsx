@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import CarteProf from "../components/CarteProf";
 import Filtres from "../components/Filtres";
@@ -43,13 +44,14 @@ export default function Professeurs() {
       {/* Navbar */}
       <nav style={{ background: "#0C447C", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "56px" }}>
         <span style={{ color: "#fff", fontSize: "18px", fontWeight: 600 }}>StudyMatch</span>
-        <div style={{ display: "flex", gap: "24px" }}>
-          <a href="/#/professeurs" style={{ color: "#fff", fontSize: "14px", textDecoration: "none" }}>Professeurs</a>
+        <div style={{ display: "flex", gap: "24px", alignItems: "center" }}>
+          <Link to="/professeurs" style={{ color: "#fff", fontSize: "14px", textDecoration: "none" }}>Professeurs</Link>
+          <Link to="/mon-profil" style={{ color: "#B5D4F4", fontSize: "14px", textDecoration: "none" }}>Mon profil</Link>
           <a href="#" style={{ color: "#B5D4F4", fontSize: "14px", textDecoration: "none" }}>Comment ça marche</a>
         </div>
-       <a href="/#/connexion" style={{ background: "#fff", color: "#0C447C", border: "none", borderRadius: "8px", padding: "7px 16px", fontSize: "13px", fontWeight: 500, cursor: "pointer", textDecoration: "none" }}>
+        <Link to="/connexion" style={{ background: "#fff", color: "#0C447C", border: "none", borderRadius: "8px", padding: "7px 16px", fontSize: "13px", fontWeight: 500, cursor: "pointer", textDecoration: "none" }}>
           Devenir prof
-        </a>
+        </Link>
       </nav>
 
       {/* Hero */}

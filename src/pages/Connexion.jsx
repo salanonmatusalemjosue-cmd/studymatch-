@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 
 export default function Connexion() {
@@ -35,7 +35,7 @@ export default function Connexion() {
   return (
     <div style={{ minHeight: "100vh", background: "#F8FAFC", fontFamily: "system-ui, sans-serif", display: "flex", flexDirection: "column" }}>
       <nav style={{ background: "#0C447C", padding: "0 24px", display: "flex", alignItems: "center", height: "56px" }}>
-        <a href="/professeurs" style={{ color: "#fff", fontSize: "18px", fontWeight: 600, textDecoration: "none" }}>StudyMatch</a>
+        <Link to="/professeurs" style={{ color: "#fff", fontSize: "18px", fontWeight: 600, textDecoration: "none" }}>StudyMatch</Link>
       </nav>
 
       <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "24px" }}>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 
 const MATIERES_DISPO = ["Maths", "Physique", "Chimie", "Français", "Anglais", "Espagnol", "Histoire", "SVT", "Éco / Gestion", "Informatique", "Philosophie"];
@@ -80,9 +80,9 @@ export default function MonProfil() {
   return (
     <div style={{ minHeight: "100vh", background: "#F8FAFC", fontFamily: "system-ui, sans-serif" }}>
       <nav style={{ background: "#0C447C", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "56px" }}>
-        <a href="/professeurs" style={{ color: "#fff", fontSize: "17px", fontWeight: 600, textDecoration: "none" }}>StudyMatch</a>
+        <Link to="/professeurs" style={{ color: "#fff", fontSize: "17px", fontWeight: 600, textDecoration: "none" }}>StudyMatch</Link>
         <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-          <a href={`/professeurs/${user?.id}`} style={{ color: "#B5D4F4", fontSize: "13px", textDecoration: "none" }}>Voir mon profil public</a>
+          <Link to={`/professeurs/${user?.id}`} style={{ color: "#B5D4F4", fontSize: "13px", textDecoration: "none" }}>Voir mon profil public</Link>
           <button onClick={handleDeconnexion} style={{ background: "none", border: "1px solid #B5D4F4", color: "#B5D4F4", borderRadius: "8px", padding: "6px 14px", fontSize: "13px", cursor: "pointer" }}>
             Déconnexion
           </button>
