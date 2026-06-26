@@ -44,7 +44,7 @@ export default function Professeurs() {
       <nav style={{ background: "#0C447C", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "56px" }}>
         <span style={{ color: "#fff", fontSize: "18px", fontWeight: 600 }}>StudyMatch</span>
         <div style={{ display: "flex", gap: "24px" }}>
-          <a href="/professeurs" style={{ color: "#fff", fontSize: "14px", textDecoration: "none" }}>Professeurs</a>
+          <a href="/#/professeurs" style={{ color: "#fff", fontSize: "14px", textDecoration: "none" }}>Professeurs</a>
           <a href="#" style={{ color: "#B5D4F4", fontSize: "14px", textDecoration: "none" }}>Comment ça marche</a>
         </div>
        <a href="/#/connexion" style={{ background: "#fff", color: "#0C447C", border: "none", borderRadius: "8px", padding: "7px 16px", fontSize: "13px", fontWeight: 500, cursor: "pointer", textDecoration: "none" }}>
