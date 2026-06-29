@@ -17,16 +17,25 @@ export default function Connexion() {
     setLoading(true);
 
     if (mode === "inscription") {
-      const { data, error } = await supabase.auth.signUp({ email, password: motDePasse });
+      const { data, error } = await supabase.auth.signUp(
+        { email, password: motDePasse },
+        { emailRedirectTo: `${window.location.origin}/#/connexion` }
+      );
       if (error) { setErreur(error.message); setLoading(false); return; }
-      // Créer un profil vide dans la table professeurs
-      if (data.user) {
-        await supabase.from("professeurs").insert({ id: data.user.id, email, prenom: "", nom: "" });
-      }
-      setSucces("Compte créé ! Vérifiez votre email pour confirmer.");
+      setSucces("Compte créé ! Un email de confirmation a été envoyé. Vérifiez votre boîte.");
     } else {
       const { error } = await supabase.auth.signInWithPassword({ email, password: motDePasse });
       if (error) { setErreur("Email ou mot de passe incorrect."); setLoading(false); return; }
+      
+      // Créer le profil après connexion (garantit que l'email est confirmé)
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const { data: existingProfile } = await supabase.from("professeurs").select("*").eq("id", user.id).single();
+        if (!existingProfile) {
+          await supabase.from("professeurs").insert({ id: user.id, email: user.email, prenom: "", nom: "" });
+        }
+      }
+      
       navigate("/mon-profil");
     }
     setLoading(false);
