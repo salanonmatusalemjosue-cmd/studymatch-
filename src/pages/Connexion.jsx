@@ -17,12 +17,27 @@ export default function Connexion() {
     setLoading(true);
 
     if (mode === "inscription") {
+      console.log("🔄 Tentative d'inscription pour:", email);
       const { data, error } = await supabase.auth.signUp(
         { email, password: motDePasse },
         { emailRedirectTo: `${window.location.origin}/#/connexion` }
       );
-      if (error) { setErreur(error.message); setLoading(false); return; }
+      if (error) { 
+        console.error("❌ Erreur inscription:", error.message);
+        setErreur(error.message); 
+        setLoading(false); 
+        return; 
+      }
+      console.log("✅ Inscription réussie, utilisateur:", data.user?.id);
       setSucces("Compte créé ! Un email de confirmation a été envoyé. Vérifiez votre boîte.");
+      setEmail("");
+      setMotDePasse("");
+      
+      // Rediriger vers connexion après 3 secondes
+      setTimeout(() => {
+        setMode("connexion");
+        setSucces("");
+      }, 3000);
     } else {
       const { error } = await supabase.auth.signInWithPassword({ email, password: motDePasse });
       if (error) { setErreur("Email ou mot de passe incorrect."); setLoading(false); return; }
